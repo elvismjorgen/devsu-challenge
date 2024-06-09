@@ -35,7 +35,8 @@ jobs:
     # Carry out Unit Testing and Code Coverage with jest
     - name: Unit Testing and Code Coverage
       run: |-
-        npm i jest
+        npm i
+        npm test
         npm run coverage
 
   build-push:
@@ -54,7 +55,7 @@ jobs:
       with:
         context: app/
         push: true
-        tags: elvismjorgen/devsu-demo:latest, elvismjorgen/devsu-demo:$ {{ github.run_number }}
+        tags: elvismjorgen/devsu-demo:latest, elvismjorgen/devsu-demo:${{ github.run_number }}
 
 
  #   environment: production
