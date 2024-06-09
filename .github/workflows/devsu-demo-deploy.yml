@@ -29,13 +29,14 @@ jobs:
     # Carry out Static Analysis of Code
     - name: Static Code Analysis
       run: |-
+        cd app/
         npm audit
-      working-directory: app/
       continue-on-error: true
     
     # Carry out Unit Testing and Code Coverage with jest
     - name: Unit Testing and Code Coverage
       run: |-
+        cd app/
         npm i
         npm test
         npm run coverage
