@@ -1,0 +1,14 @@
+---
+resources:
+  - ../base
+  - namespace.yml
+secretGenerator:
+  - name: db-name
+    literals:
+    - db-name=./dev.sqlite
+  - name: db-user
+    literals:
+    - db-user=user
+  - name: db-pwd
+    literals:
+    - db-pwd=password
