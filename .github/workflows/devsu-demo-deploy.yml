@@ -37,8 +37,7 @@ jobs:
     - name: Unit Testing and Code Coverage
       run: |-
         cd app/
-        npm i
-        npm test
+        npm i jest
         npm run coverage
 
   build-push:
