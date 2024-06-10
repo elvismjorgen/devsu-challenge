@@ -4,9 +4,15 @@ resource "azurerm_user_assigned_identity" "base" {
   resource_group_name = azurerm_resource_group.this.name
 }
 
-resource "azurerm_role_assignment" "base" {
+resource "azurerm_role_assignment" "network_contributor" {
   scope                = azurerm_resource_group.this.id
   role_definition_name = "Network Contributor"
+  principal_id         = azurerm_user_assigned_identity.base.principal_id
+}
+
+resource "azurerm_role_assignment" "contributor" {
+  scope                = azurerm_resource_group.this.id
+  role_definition_name = "Contributor"
   principal_id         = azurerm_user_assigned_identity.base.principal_id
 }
 
