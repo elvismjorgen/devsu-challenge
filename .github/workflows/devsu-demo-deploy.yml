@@ -63,11 +63,11 @@ jobs:
   deploy-infrastructure:
     name: Deploy Infrastructure on Azure
     runs-on: ubuntu-latest
+    need: build-push
     defaults:
       run:
         shell: bash
         working-directory: terraform
-    need: build-push
 
     steps:
       - name: Checkout
