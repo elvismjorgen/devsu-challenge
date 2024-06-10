@@ -1,7 +1,6 @@
 name: Test, Build and Deploy Devsu DevOps Demo to AKS
 on:
-  push:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 env:
   AKS_NAME: dev1-aks-devsu-devops-demo

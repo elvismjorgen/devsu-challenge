@@ -2,5 +2,5 @@
 resources:
 - deployment.yml
 - service.yml
-#- ingress.yaml
-#- managed-cert.yaml
+- ingress.yml
+- cert-manager.yml
