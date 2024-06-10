@@ -34,6 +34,13 @@ Below is the stack I chose to perform this challenge:
 * **Terraform**: Contains terraform configurations files for all necessary resources to provision on Azure.
 
 
+The URL of the app is (I will keep the infrastructure until Friday at midday):
+http://48.217.132.5/api/users
+
+Repo URL:
+https://github.com/elvismjorgen/devsu-challenge
+
+
 Note:
 
 My apologies, as I know the documentation is incomplete (the diagram is also missing); I had a madness week at work and I almost didn't have time to do a better job (even on weekend); the application is not accessible through a domain because, although I bought a domain, it is not redirecting traffic to Azure. I created a CNAME record pointing to the load balancer IP, but it still doesn't work. I have opened a support case with my domain provider, but they haven't replied yet, and since I don't have much time, I will deliver the project in its current state, but to apply TLS I'd do it as follow:
