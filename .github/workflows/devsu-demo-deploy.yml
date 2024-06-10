@@ -43,7 +43,7 @@ jobs:
   build-push:
     name: Build Docker Image and Push to DockerHub
     runs-on: ubuntu-latest
-    need: test
+    needs: test
 
     steps:
     - name: Checkout
@@ -63,7 +63,7 @@ jobs:
   deploy-infrastructure:
     name: Deploy Infrastructure on Azure
     runs-on: ubuntu-latest
-    need: build-push
+    needs: build-push
     defaults:
       run:
         shell: bash
