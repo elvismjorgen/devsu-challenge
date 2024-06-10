@@ -34,8 +34,9 @@ jobs:
         run: |-
           az aks get-credentials --resource-group ${{ env.AKS_RG }} --name ${{ env.AKS_NAME }}
           kubectl apply -k ${{ env.ENV }}/
+          chmod +x ../scripts/generate_secrets.sh
           ../scripts/generate_secrets.sh
-    
+          
  #   environment: production
  #   needs: [test]#
 
