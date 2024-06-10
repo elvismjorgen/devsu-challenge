@@ -70,6 +70,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   }
 
   depends_on = [
-    azurerm_role_assignment.base
+    azurerm_role_assignment.contributor,
+    azurerm_role_assignment.network_contributor
   ]
 }
