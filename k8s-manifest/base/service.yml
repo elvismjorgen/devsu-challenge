@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: devsu-devops-demo-svc
   namespace: dev1
+  annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "false" # Ensure this is false or remove it for an external IP
 spec:
   type: LoadBalancer
   selector:

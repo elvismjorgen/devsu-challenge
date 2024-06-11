@@ -8,10 +8,25 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
+  ingressClassName: external-nginx
   rules:
   - host: emjn-devsu-demo.org
     http:
       paths:
+      - path: /.well-known/acme-challenge/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: cm-acme-http-solver-67cnz
+            port:
+              number: 8089     
+      - path: "/api/users/"
+        pathType: Prefix
+        backend:
+          service:
+            name: devsu-devops-demo-svc
+            port:
+              number: 80
       - path: /
         pathType: Prefix
         backend:

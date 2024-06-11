@@ -39,6 +39,10 @@ spec:
             secretKeyRef:
               name: db-pwd
               key: db-pwd
+        volumeMounts:
+            - name: tls-secret
+              mountPath: /etc/tls
+              readOnly: true
         livenessProbe:
           failureThreshold: 3
           httpGet:
@@ -52,3 +56,7 @@ spec:
           requests:
             cpu: 100m
             memory: 200Mi
+      volumes:
+        - name: tls-secret
+          secret:
+            secretName: devsu-devops-demo-tls
