@@ -43,4 +43,4 @@ https://github.com/elvismjorgen/devsu-challenge
 
 Note:
 
-I was able to add the app to responde on the Domain I got (after provider fixed issue with domain propagation); however I wasn't able to have the TLS work.
+My apologies, as I know the documentation is incomplete (the diagram is also missing); I had a madness week at work and I almost didn't have time to do a better job (even on weekend); I wasn't able to have the TLS certificate work (didn't have time to fix that issue).
