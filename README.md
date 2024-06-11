@@ -35,7 +35,7 @@ Below is the stack I chose to perform this challenge:
 
 
 The URL of the app is (I will keep the infrastructure until Friday at midday):
-http://48.217.132.5/api/users
+http://emjn-devsu-demo.org/api/users
 
 Repo URL:
 https://github.com/elvismjorgen/devsu-challenge
@@ -43,7 +43,4 @@ https://github.com/elvismjorgen/devsu-challenge
 
 Note:
 
-My apologies, as I know the documentation is incomplete (the diagram is also missing); I had a madness week at work and I almost didn't have time to do a better job (even on weekend); the application is not accessible through a domain because, although I bought a domain, it is not redirecting traffic to Azure. I created a CNAME record pointing to the load balancer IP, but it still doesn't work. I have opened a support case with my domain provider, but they haven't replied yet, and since I don't have much time, I will deliver the project in its current state, but to apply TLS I'd do it as follow:
-
-1. Create a cluster issuer for Let's Encrypt
-2. Create a ingress and add cluster-issuer in it
+I was able to add the app to responde on the Domain I got (after provider fixed issue with domain propagation); however I wasn't able to have the TLS work.
