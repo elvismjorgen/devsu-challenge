@@ -2,15 +2,6 @@ name: Provision Infrastructure for Devsu DevOps Demo
 on:
   workflow_dispatch:
 
-#env:
-#  AKS_NAME: dev1-aks-devsu-devops-demo
-#  AKS_RG: rg-devsu-devops-demo
-#  ENV: dev1
-
-#permissions:
-#  id-token: write
-#  contents: read
-
 jobs:
   deploy-infrastructure:
     name: Deploy Infrastructure on Azure
