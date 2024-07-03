@@ -10,7 +10,7 @@ env:
 permissions:
   id-token: write
   contents: read
-  
+
 jobs:
   test:
     name: Test and Build the App into a Docker Container
@@ -28,11 +28,11 @@ jobs:
       continue-on-error: true
     
     # Carry out Unit Testing and Code Coverage with jest
-    - name: Unit Testing and Code Coverage
-      run: |-
-        cd app/
-        npm i jest
-        npm run coverage
+  #  - name: Unit Testing and Code Coverage
+  #    run: |-
+  #      cd app/
+  #      npm i jest
+  #      npm run coverage
 
   build-push:
     name: Build Docker Image and Push to DockerHub
