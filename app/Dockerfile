@@ -2,7 +2,7 @@
 # -------------------------------------------------------------------------------------------------------
 
 # Using node:22-alpine as a base provides a lightweight image with the runtime environment for Node.js
-FROM node:22-alpine AS BASE_IMAGE
+FROM node:22-alpine AS base_image
 
 # Create a new user 'devsu-demo-user' and group 'devsu-demo-group'
 RUN addgroup -S devsu-group && adduser -S devsu-user -G devsu-group
@@ -24,7 +24,7 @@ RUN npm install --no-cache
 
 # Stage 2: Build
 # -------------------------------------------------------------------------------------------------------
-FROM BASE_IMAGE AS BUILD_APP
+FROM base_image AS build_app
 
 # Copying code to work directory
 COPY . .
