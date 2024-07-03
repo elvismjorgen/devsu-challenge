@@ -18,7 +18,7 @@ DBNAME=$PREFIX$DB
 DBUSER=$PREFIX$USER
 DBPWD=$PREFIX$DB
 
-kubectl get secret db-name -o name > /dev/null 2>&1
+kubectl get secret db-name -o name -n $ENV > /dev/null 2>&1
 
 if [ ! $? -eq 0 ]; then
     kubectl create secret generic db-name --from-literal=db-name='$DBNAME' -n $ENV
