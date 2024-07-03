@@ -1,14 +1,30 @@
+# Stage 1: Base
+# -------------------------------------------------------------------------------------------------------
+
 # Using node:22-alpine as a base provides a lightweight image with the runtime environment for Node.js
-FROM node:22-alpine
+FROM node:22-alpine AS BASE_IMAGE
+
+# Create a new user 'devsu-demo-user' and group 'devsu-demo-group'
+RUN addgroup -S devsu-group && adduser -S devsu-user -G devsu-group
 
 # Specify working directory
-WORKDIR /usr/src/app
+WORKDIR /app
+
+# Set ownership and permissions for the working directory
+RUN chown -R devsu-user:devsu-group /app
+
+# Switch to the 'devsu-demo-user'
+USER devsu-user
 
 # Copying dependency files
 COPY package*.json ./
 
 # Installing dependencies
-RUN npm i
+RUN npm install --no-cache
+
+# Stage 2: Build
+# -------------------------------------------------------------------------------------------------------
+FROM BASE_IMAGE AS BUILD_APP
 
 # Copying code to work directory
 COPY . .
