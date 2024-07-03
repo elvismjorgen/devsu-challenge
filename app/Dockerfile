@@ -20,7 +20,7 @@ USER devsu-user
 COPY package*.json ./
 
 # Installing dependencies
-RUN npm install --no-cache
+RUN npm install
 
 # Stage 2: Build
 # -------------------------------------------------------------------------------------------------------
