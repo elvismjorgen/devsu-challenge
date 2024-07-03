@@ -13,26 +13,34 @@ permissions:
 
 jobs:
   test:
-    name: Test and Build the App into a Docker Container
+    name: Build and Test the App
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Carry out Static Analysis of Code
-    - name: Static Code Analysis
+    - name: Install Dependencies
+      run: |-
+        cd app/
+        npm install
+    
+    - name: Build App
+      run: |-
+        cd app/
+        npm run build
+
+    - name: Run Security Audit of the App's Dependencies
       run: |-
         cd app/
         npm audit
       continue-on-error: true
     
-    # Carry out Unit Testing and Code Coverage with jest
-  #  - name: Unit Testing and Code Coverage
-  #    run: |-
-  #      cd app/
-  #      npm i jest
-  #      npm run coverage
+    - name: Run Tests and Generate Coverage Report
+      run: |-
+        cd app/
+        npm install jest
+        npm run coverage
 
   build-push:
     name: Build Docker Image and Push to DockerHub
