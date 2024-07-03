@@ -10,17 +10,17 @@ RUN addgroup -S devsu-group && adduser -S devsu-user -G devsu-group
 # Specify working directory
 WORKDIR /app
 
+# Copying dependency files
+COPY package*.json ./
+
+# Installing dependencies
+RUN npm install 
+
 # Set ownership and permissions for the working directory
 RUN chown -R devsu-user:devsu-group /app
 
 # Switch to the 'devsu-demo-user'
 USER devsu-user
-
-# Copying dependency files
-COPY package*.json ./
-
-# Installing dependencies
-RUN npm i
 
 # Stage 2: Build
 # -------------------------------------------------------------------------------------------------------
