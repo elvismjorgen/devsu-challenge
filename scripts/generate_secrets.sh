@@ -18,6 +18,10 @@ DBNAME=$PREFIX$DB
 DBUSER=$PREFIX$USER
 DBPWD=$PREFIX$DB
 
-kubectl create secret generic db-name --from-literal=db-name='$DBNAME' -n $ENV
-kubectl create secret generic db-user --from-literal=db-user='$DBUSER' -n $ENV
-kubectl create secret generic db-pwd --from-literal=db-pwd='$DBPWD' -n $ENV
+kubectl get secret db-name -o name > /dev/null 2>&1
+
+if [ ! $? -eq 0 ]; then
+    kubectl create secret generic db-name --from-literal=db-name='$DBNAME' -n $ENV
+    kubectl create secret generic db-user --from-literal=db-user='$DBUSER' -n $ENV
+    kubectl create secret generic db-pwd --from-literal=db-pwd='$DBPWD' -n $ENV
+fi
